@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Dad</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0e68c;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+    
+        h1 {
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ffb300;
+        }
+
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #cake {
+            position: absolute;
+            top: 5%;
+            width: 25%;
+            left: 0;
+        }
+        #cake p {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        #ps {
+            position: absolute;
+            left:80%;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="birthdayMessage">Happy Birthday Dad!</h1>
+    <div id="cake">
+        <img src="cake.png" width="400" height="400">
+        <p>Bit of an A.I. blooper here - the photo it originally generated had a background but said "happy birthday" normally yet when I asked it to remove the background, it added "girthday" which I found quite amusing!</p>
+    </div>
+    <p id="ps">Hopefully the rendition of "Happy Birthday" that I made just for you works on your browser! Sorry if the audio quality is terrible, I recorded it on my phone!</p>
+    
+    <div id="gallery">
+    <div class="gallery">
+        <a target="_blank" href="arch.jpg">
+          <img src="arch.jpg" alt="Mum and Dad under arch" width="600" height="400">
+        </a>
+        <div class="desc">Silly brobro!</div>
+    </div>
+      
+    <div class="gallery">
+    <a target="_blank" href="beekeper.jpg">
+      <img src="beekeeper.jpg" alt="Beekeeper Dad" width="600" height="400">
+    </a>
+    <div class="desc">Dad looking ready to do business!</div>
+    </div>
+      
+    <div class="gallery">
+    <a target="_blank" href="vindolanda.jpg">
+        <img src="vindolanda.jpg" alt="Vindolanda" width="600" height="400">
+    </a>
+    <div class="desc">I'm thinking this is Vindolanda...</div>
+    </div>
+      
+    <div class="gallery">
+    <a target="_blank" href="pumpkin.jpg">
+      <img src="pumpkin.jpg" alt="pumpkin" width="600" height="400">
+    </a>
+    <div class="desc">I missed doing this!</div>
+    </div>
+    </div>
+    <p>Hint: Click on the images to see them full size!</p>
+    <button id="playButton">Play Tune</button>
+    <audio id="birthdayMusic">
+        <source src="hbdad.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <p id="finalMessage" style="display: none;">Hope you enjoyed this little montage, lots of love and can't wait to see you on Saturday xx</p>
+    <script>
+        const birthdayMessage = document.getElementById('birthdayMessage');
+        const finalMessage = document.getElementById('finalMessage');
+        const playButton = document.getElementById('playButton');
+        const music = document.getElementById('birthdayMusic');
+
+        // Show the birthday message with transition
+        window.onload = () => {
+            birthdayMessage.classList.add('show');
+        };
+
+        playButton.addEventListener('click', () => {
+            music.play(); // Play the music
+            playButton.style.display = 'none'; // Hide the button
+            finalMessage.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
